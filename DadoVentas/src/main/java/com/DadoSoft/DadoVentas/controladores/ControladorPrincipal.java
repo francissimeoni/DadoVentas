@@ -24,7 +24,7 @@ public class ControladorPrincipal {
     GerarquiaUsuarioServicio Gu = new GerarquiaUsuarioServicio();
 
     @GetMapping("/pruebaController")
-    public void HolaMundo() throws JsonProcessingException {
+    public void HolaMundo() {
 
         System.out.println("Hasta aca llegué");
 

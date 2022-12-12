@@ -24,30 +24,30 @@ public class Clientes {
 
       @Id
     @GeneratedValue(generator = "uuid")
-    private Long IdCliente;
-    private String Dni;
+    private Long idCliente;
+    private String dni;
     private String nombreCompleto;
-    private String Domicilio;
-    private String Localidad;
-    private String Provincia;
-    private String Pais;
-    private String CodigoPostal;
-    private String Telefono;
-    private String Celular;
-    private String Email;
+    private String domicilio;
+    private String localidad;
+    private String provincia;
+    private String pais;
+    private String codigoPostal;
+    private String telefono;
+    private String celular;
+    private String email;
 
     @Temporal(TemporalType.DATE)
-    private Date FechaNacimiento;
+    private Date fechaNacimiento;
 
     @Temporal(TemporalType.DATE)
-    private Date FechaIngreso;
+    private Date fechaIngreso;
 
-    Boolean SuspendeSiNo;
-    private double Saldo;
-    private double CreditoMinimo;
-    private Boolean ActivoSiNo;
+    Boolean suspendeSiNo;
+    private double saldo;
+    private double creditoMaximo;
+    private Boolean activoSiNo;
 
     @Temporal(TemporalType.DATE)
-    private Calendar UltimoIngreso;
+    private Date ultimoIngreso;
 
 }
