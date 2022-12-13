@@ -1,6 +1,7 @@
 package com.DadoSoft.DadoVentas.servicios;
 
 import com.DadoSoft.DadoVentas.Entidades.Clientes;
+import com.DadoSoft.DadoVentas.Entidades.CondicionIva;
 import com.DadoSoft.DadoVentas.Exceciones.MiExcepcion;
 import com.DadoSoft.DadoVentas.repositorio.ClientesRepository;
 import com.sun.corba.se.impl.logging.OMGSystemException;
@@ -19,7 +20,7 @@ public class ClientesServicio {
     @Transactional
     public Boolean CrearCliente(String nombreCompleto, String dni, String domicilio, String localicad, String provincia, String codigoPostal,
             String telefono, String celular, String email, Date fechaNacimiento, Date fechaIngreso, Boolean suspendeSiNo,
-            double saldo, double creditoMaximo, Date ultimoIngreso) throws MiExcepcion {
+            double saldo, double creditoMaximo, Date ultimoIngreso, CondicionIva condicionIva, String pais, String contraseña) throws MiExcepcion {
 
         validaciones(dni);
 
@@ -32,6 +33,7 @@ public class ClientesServicio {
             c.setDomicilio(domicilio);
             c.setLocalidad(localicad);
             c.setProvincia(provincia);
+            c.setPais(pais);
             c.setCodigoPostal(codigoPostal);
             c.setTelefono(telefono);
             c.setCelular(celular);
@@ -42,6 +44,9 @@ public class ClientesServicio {
             c.setSaldo(saldo);
             c.setCreditoMaximo(creditoMaximo);
             c.setUltimoIngreso(ultimoIngreso);
+            c.setActivoSiNo(true);
+            c.setCondicionIva(condicionIva);
+            c.setContraseña(contraseña);
 
             cR.save(c);
             return true;
@@ -72,6 +77,32 @@ public class ClientesServicio {
 
     }
 
+    @Transactional
+    public void activoSino(Long idCliente, Boolean estado) {
+
+        Clientes c = new Clientes();
+        Optional<Clientes> op = cR.findById(idCliente);
+        c = op.get();
+
+        c.setActivoSiNo(estado);
+
+    }
+
+    @Transactional
+    public Boolean suspendeSino(Long idCliente, Boolean estado) {
+
+        try {
+
+            Clientes c = new Clientes();
+            Optional<Clientes> op = cR.findById(idCliente);
+            c = op.get();
+            c.setSuspendeSiNo(estado);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public Date obtenerUltimoIngreso(Long idCliente) {
 
         Clientes c = new Clientes();
@@ -80,16 +111,6 @@ public class ClientesServicio {
 
         return c.getUltimoIngreso();
     }
-    
-    public void activoSino(Long idCliente, Boolean estado){
-    
-    
-    
-    
-    }
-    
-    
-    
 
     public void validaciones(String dni) throws MiExcepcion {
 

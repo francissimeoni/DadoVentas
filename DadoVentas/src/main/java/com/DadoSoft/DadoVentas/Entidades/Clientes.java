@@ -2,18 +2,19 @@
 
 package com.DadoSoft.DadoVentas.Entidades;
 
-import java.util.Calendar;
+
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 @Getter
 @Setter //Setter
@@ -49,5 +50,11 @@ public class Clientes {
 
     @Temporal(TemporalType.DATE)
     private Date ultimoIngreso;
+    
+    @OneToOne
+    @JoinColumn(name = "idCondicion")
+    private CondicionIva condicionIva;
+    
+    private String contraseña;
 
 }
