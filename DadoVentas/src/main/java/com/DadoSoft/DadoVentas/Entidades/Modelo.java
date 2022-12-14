@@ -20,5 +20,5 @@ public class Modelo {
      @Id
     @GeneratedValue(generator = "uuid")
     private Long idModelo;
-    private String Modelo;
+    private String modelo;
 }

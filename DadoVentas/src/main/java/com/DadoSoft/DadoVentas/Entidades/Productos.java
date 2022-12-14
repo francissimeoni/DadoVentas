@@ -1,13 +1,17 @@
 package com.DadoSoft.DadoVentas.Entidades;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 
 @Getter
 @Setter
@@ -17,35 +21,49 @@ import lombok.ToString;
 
 public class Productos {
 
-     @Id
+    @Id
     @GeneratedValue(generator = "uuid")
-    private Long IdProducto;
-    private String ProductoNombre;
-    private String DescripcionLarga;
-   
-    private String idRubro;
-    
-    private String idCategoria;
-   
-    private String idMarca;
-   
-    private String idModelo;
-    private String CodBarra;
-    private String CodInterno;
-    private boolean ActivoSiNo;
-    private float PrecioCosto;
-   
-    private float idMoneda;
+    private Long idProducto;
+    private String productoNombre;
+    private String descripcionLarga;
+
+    @OneToOne
+    @JoinColumn(name = "idRubro")
+    private Rubro rubro;
+
+    @OneToOne
+    @JoinColumn(name = "idCategoria")
+    private Categoria categoria;
+
+    @OneToOne
+    @JoinColumn(name = "idMarca")
+    private Marca marca;
+
+    @OneToOne
+    @JoinColumn(name = "idModelo")
+    private Modelo idModelo;
+    private String codBarra;
+    private String codInterno;
+    private boolean activoSiNo;
+    private float precioCosto;
+
+    @OneToOne
+    @JoinColumn(name = "idMoneda")
+    private Moneda moneda;
     private float iva;
-   
-    private Integer idUnidadMedida;
-    private float Lista1;
-    private float Lista2;
-    private float Lista3;
-    private float Lista4;
-    private float Comision;
-    
-    private Integer idImagen;
+
+    @OneToOne
+    @JoinColumn(name = "idUnidadDeMedida")
+    private UnidadMedida idUnidadMedida;
+    private float lista1;
+    private float lista2;
+    private float lista3;
+    private float lista4;
+    private float comision;
+
+    @OneToMany
+    @JoinColumn(name = "idProducto")
+    private List<Imagenes> imagenes;
     private float PorecentajeCalidad;
 
 }

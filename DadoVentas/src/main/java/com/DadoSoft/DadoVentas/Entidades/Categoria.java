@@ -19,5 +19,5 @@ public class Categoria {
      @Id
     @GeneratedValue(generator = "uuid")
     private Long idCategoria;
-    private String Categoria;
+    private String categoria;
 }

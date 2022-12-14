@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter //Setter
 @NoArgsConstructor //Constructor vacio
@@ -17,8 +16,8 @@ import lombok.ToString;
 
 public class Marca {
 
-      @Id
+    @Id
     @GeneratedValue(generator = "uuid")
     private Long idMarca;
-    private String Marca;
+    private String marca;
 }

@@ -25,19 +25,19 @@ public class Usuarios {
     @Id
     @GeneratedValue(generator = "uuid")
     private Long idUsuario;
-    private String Usuario;
+    private String usuario;
     private String contraseña;
-    private String Domicilio;
-    private String Telefono;
-    private String Email;
-    private Boolean ComisionSiNo;
-    private Boolean ActivoSiNo;
+    private String domicilio;
+    private String telefono;
+    private String email;
+    private Boolean comisionSiNo;
+    private Boolean activoSiNo;
 
     @OneToOne
     @JoinColumn(name = "IdGerarquiaUsuario")
-    private GerarquiaUsuario GerarquiaUsuario;
+    private GerarquiaUsuario gerarquiaUsuario;
 
     @Enumerated(EnumType.STRING)
-    private Rol Rol;
+    private Rol rol;
 
 }

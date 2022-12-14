@@ -21,6 +21,6 @@ public class Rubro {
       @Id
     @GeneratedValue(generator = "uuid")
     private Long idRubro;
-    private String Rubro;
+    private String rubro;
     
 }

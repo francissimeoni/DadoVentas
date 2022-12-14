@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter //Setter
 @NoArgsConstructor //Constructor vacio
@@ -17,9 +16,9 @@ import lombok.ToString;
 
 public class Moneda {
 
-     @Id
+    @Id
     @GeneratedValue(generator = "uuid")
     private Long idMoneda;
-    private String Moneda;
-    private float ValorNominal;
+    private String moneda;
+    private float valorNominal;
 }

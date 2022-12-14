@@ -1,15 +1,15 @@
-
 package com.DadoSoft.DadoVentas.Entidades;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-
 
 @Getter
 @Setter //Setter
@@ -17,9 +17,16 @@ import lombok.ToString;
 @ToString //Tostring
 @Entity
 public class Imagenes {
-      @Id
+
+    @Id
     @GeneratedValue(generator = "uuid")
     private Long idImagen;
-    private String CodigoImagen;
-    private String Url;
+    private Long idProducto;
+    private String nombre;
+    private String mime;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] contenido;
+
 }
