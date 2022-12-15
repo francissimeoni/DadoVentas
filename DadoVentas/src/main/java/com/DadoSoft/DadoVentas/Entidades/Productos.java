@@ -41,7 +41,7 @@ public class Productos {
 
     @OneToOne
     @JoinColumn(name = "idModelo")
-    private Modelo idModelo;
+    private Modelo modelo;
     private String codBarra;
     private String codInterno;
     private boolean activoSiNo;
@@ -54,16 +54,12 @@ public class Productos {
 
     @OneToOne
     @JoinColumn(name = "idUnidadDeMedida")
-    private UnidadMedida idUnidadMedida;
+    private UnidadMedida unidadMedida;
     private float lista1;
     private float lista2;
     private float lista3;
     private float lista4;
     private float comision;
-
-    @OneToMany
-    @JoinColumn(name = "idProducto")
-    private List<Imagenes> imagenes;
     private float PorecentajeCalidad;
 
 }
