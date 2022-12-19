@@ -1,6 +1,7 @@
 package com.DadoSoft.DadoVentas.Entidades;
 
 import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -40,6 +41,6 @@ public class PulsosCliente {
     private Clientes clientes;
 
     @Temporal(TemporalType.DATE)
-    private Calendar Fecha;
+    private Date Fecha;
 
 }

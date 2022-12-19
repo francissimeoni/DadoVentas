@@ -21,6 +21,7 @@ public class CondicionIva {
     @GeneratedValue(generator = "uuid")
     private Long idCondicion;
     private String nombre;
+    private Boolean ActivoSiNo;
     
     
 }

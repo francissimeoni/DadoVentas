@@ -1,6 +1,7 @@
 package com.DadoSoft.DadoVentas.Entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,12 +19,15 @@ import lombok.ToString;
 public class ProductosStockSucursal {
 
     @Id
-    @OneToOne
+    @GeneratedValue(generator = "uuid")
+    private Long idreg;
+
+    @ManyToOne
     @JoinColumn(name = "idProducto")
     private Productos producto;
     private int cantidadMinima;
     private int cantidad;
-        
+
     @ManyToOne
     @JoinColumn(name = "idSucursal")
     private Sucursal sucursal;

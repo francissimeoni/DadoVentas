@@ -1,4 +1,3 @@
-
 package com.DadoSoft.DadoVentas.Entidades;
 
 import javax.persistence.Entity;
@@ -9,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
 @Getter
 @Setter //Setter
 @NoArgsConstructor //Constructor vacio
@@ -18,14 +15,11 @@ import lombok.ToString;
 @Entity
 public class PulsosMotivosCliente {
 
-      @Id
+    @Id
     @GeneratedValue(generator = "uuid")
     private Long idMotivo;
-    
     private String Mensaje;
-   
-    private Integer idPulsoValor;
-    
-    
+    private Integer Valor;
+    private Boolean activoSiNo;
 
 }

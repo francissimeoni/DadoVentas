@@ -1,16 +1,21 @@
 package com.DadoSoft.DadoVentas.controladores;
+
+import com.DadoSoft.DadoVentas.Entidades.Categoria;
 import com.DadoSoft.DadoVentas.Exceciones.MiExcepcion;
 import com.DadoSoft.DadoVentas.servicios.CategoriaServicio;
 import com.DadoSoft.DadoVentas.servicios.GerarquiaUsuarioServicio;
 import com.DadoSoft.DadoVentas.servicios.UsuariosServicio;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
+@CrossOrigin("*")
 public class ControladorPrincipal {
 
     @Autowired
@@ -18,15 +23,22 @@ public class ControladorPrincipal {
 
     @Autowired
     UsuariosServicio uS = new UsuariosServicio();
-    
-    
+
     @Autowired
     GerarquiaUsuarioServicio Gu = new GerarquiaUsuarioServicio();
 
-    @GetMapping("/pruebaController")
-    public void HolaMundo() {
+    @GetMapping(value = "/pruebaController")
+    public String HolaMundo() throws JsonProcessingException {
 
-        System.out.println("Hasta aca llegué");
+        Categoria c = new Categoria();
+        ObjectMapper mapper = new ObjectMapper();
+
+        c.setCategoria("marroquineria");
+        c.setIdCategoria(Long.MAX_VALUE);
+
+        String jsonStr = mapper.writeValueAsString(c);
+
+        return jsonStr;
 
     }
 
@@ -56,9 +68,7 @@ public class ControladorPrincipal {
 
         Gu.crearGerarquia();
         System.out.println("Gerarquia creada");
-        
+
     }
-    
-  
-    
+
 }

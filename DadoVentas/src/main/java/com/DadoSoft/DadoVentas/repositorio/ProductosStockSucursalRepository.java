@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductosStockSucursalRepository extends JpaRepository<ProductosStockSucursal, Long> {
 
-    @Query("select p from ProductosStockSucursal p where p.idProducto= :idProducto and p.idSucursal= :idSucursal")
+  /*  @Query("select p from ProductosStockSucursal p where p.idProducto= :idProducto and p.idSucursal= :idSucursal")
     public ProductosStockSucursal buscarProductoPorSucursal(@Param("idProducto") Long idProducto, @Param("idSucursal") Long idSucursal);
-
+*/
 }

@@ -15,8 +15,7 @@ public class ImagenesServicio {
 
     @Autowired
     ImagenesRepository iR;
-    
-    
+
     @Autowired
     ProductosRepository pR;
 
@@ -25,11 +24,10 @@ public class ImagenesServicio {
         try {
 
             Productos p = pR.ObtenerUltimoProducto();
-            
             for (MultipartFile img : Archivo) {
 
                 Imagenes imagen = new Imagenes();
-                
+
                 imagen.setMime(img.getContentType());
                 imagen.setNombre(img.getName());
                 imagen.setContenido(img.getBytes());

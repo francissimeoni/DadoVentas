@@ -19,6 +19,5 @@ public class PulsosValorCliente {
       @Id
     @GeneratedValue(generator = "uuid")
     private Long idPulsoValor;
-
     private Integer valorNominal;
 }

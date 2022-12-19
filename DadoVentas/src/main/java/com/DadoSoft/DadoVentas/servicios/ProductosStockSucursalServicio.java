@@ -14,7 +14,7 @@ public class ProductosStockSucursalServicio {
     @Autowired
     ProductosStockSucursalRepository pssR;
 
-    public void IncrementarStockSucursal(Productos producto, int cantidad, Sucursal sucursal) {
+   /* public void IncrementarStockSucursal(Productos producto, int cantidad, Sucursal sucursal) {
         ProductosStockSucursal StockEnSucursal;
         StockEnSucursal = pssR.buscarProductoPorSucursal(producto.getIdProducto(), sucursal.getIdSucursal());
 
@@ -37,5 +37,5 @@ public class ProductosStockSucursalServicio {
         }
 
     }
-
+*/
 }
