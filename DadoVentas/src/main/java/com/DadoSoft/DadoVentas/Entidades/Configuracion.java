@@ -43,10 +43,10 @@ public class Configuracion {
 
     private String correoElectronico;
 
-    private String telefonoMovil;
-    private String telefonoMovi2;
-    private String telefonoMovi3;
-    private String telefonoMovi4;
+    private String telefonoMovil1;
+    private String telefonoMovil2;
+    private String telefonoMovil3;
+    private String telefonoMovil4;
 
     private String telefonoFijo1;
     private String telefonoFijo2;
@@ -63,5 +63,6 @@ public class Configuracion {
     private Integer ticketPresupuesto;
     private Integer ticketNotaDeCredito;
     private Integer ticketNotaDeDebito;
-
+    private Integer ticketNotaDePedido;
+    private Integer TicketNotaDeVenta;
 }
