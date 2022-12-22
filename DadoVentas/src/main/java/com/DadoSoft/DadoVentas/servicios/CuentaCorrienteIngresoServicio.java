@@ -155,7 +155,7 @@ public class CuentaCorrienteIngresoServicio {
             cci.setDebe(0);
             cci.setFecha(fechaEditada);
             cci.setHaber(importe);
-            cci.setSaldo(saldoCliente(cliente.getIdCliente()) + importe);
+            cci.setSaldo(saldoCliente(cliente.getIdCliente()) - importe);
             cci.setTicket(ticket);
 
             cciR.save(cci);
