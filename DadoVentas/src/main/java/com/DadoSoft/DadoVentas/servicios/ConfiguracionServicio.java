@@ -16,7 +16,7 @@ public class ConfiguracionServicio {
 
     @Transactional
 
-    public Boolean CrearConfiguracion(String IIBB, CondicionIva condicionIva, String inicioDeActividad, Imagenes imagen,  String cai, String nombreDeFantasía,
+    public Boolean CrearConfiguracion(String IIBB, CondicionIva condicionIva, String inicioDeActividad, Imagenes imagen, String cai, String nombreDeFantasía,
             String productKey, String direccion, String localidad, String provincia, String cp, String correoElectronico, String telefonoMovil1, String telefonoMovil2,
             String telefonoMovil3, String telefonoMovil4, String telefonoFijo1, String telefonoFijo2, String telefonoFijo3, String telefonoFijo4, String redSocial1, String redSocial2,
             String redSocial3, String redSocial4, Integer ticketVenta, Integer ticketRemito, Integer ticketPresupuesto, Integer ticketNotaDeCredito, Integer ticketNotaDeDebito,
@@ -61,6 +61,14 @@ public class ConfiguracionServicio {
         cR.save(c);
 
         return null;
+    }
+
+    public int nuevoTicketDeVenta() {
+
+        Configuracion c = cR.TraerDatosDeConfiguracion();
+
+        return c.getTicketVenta() + 1;
+
     }
 
 }

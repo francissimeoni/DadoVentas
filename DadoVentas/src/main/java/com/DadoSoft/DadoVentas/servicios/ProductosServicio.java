@@ -136,4 +136,15 @@ public class ProductosServicio {
 
     }
 
+    public double obtenerPrecioProductoPorId(Long idProducto, float listaSeleccionada) {
+
+        Productos p = pR.getOne(idProducto);
+
+        double precioParcial = (p.getPrecioCosto() * listaSeleccionada / 100) + p.getPrecioCosto();
+        double precioFinal = precioParcial * p.getMoneda().getValorNominal();
+
+        return precioFinal;
+
+    }
+
 }
