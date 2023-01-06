@@ -20,7 +20,7 @@ public class ConfiguracionServicio {
             String productKey, String direccion, String localidad, String provincia, String cp, String correoElectronico, String telefonoMovil1, String telefonoMovil2,
             String telefonoMovil3, String telefonoMovil4, String telefonoFijo1, String telefonoFijo2, String telefonoFijo3, String telefonoFijo4, String redSocial1, String redSocial2,
             String redSocial3, String redSocial4, Integer ticketVenta, Integer ticketRemito, Integer ticketPresupuesto, Integer ticketNotaDeCredito, Integer ticketNotaDeDebito,
-            Integer ticketNotaDePedido, Integer ticketNotaDeVenta) {
+            Integer ticketNotaDePedido, Integer ticketNotaDeVenta, Integer ticketRecibo) {
 
         Configuracion c = new Configuracion();
 
@@ -57,10 +57,11 @@ public class ConfiguracionServicio {
         c.setTicketPresupuesto(ticketPresupuesto);
         c.setTicketRemito(ticketRemito);
         c.setTicketVenta(ticketVenta);
+        c.setTicketRecibo(ticketRecibo);
 
         cR.save(c);
 
-        return null;
+        return true;
     }
 
     public int nuevoTicketDeVenta() {
@@ -69,6 +70,92 @@ public class ConfiguracionServicio {
 
         return c.getTicketVenta() + 1;
 
+    }
+
+    public int obtenerUltimoTicket(int tipoComprobante) {
+        Configuracion c = new Configuracion();
+
+        switch (tipoComprobante) {
+
+            case 1:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketVenta();
+
+            case 2:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketRecibo();
+
+            case 3:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketRemito();
+
+            case 4:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketNotaDeCredito();
+
+            case 5:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketNotaDeDebito();
+
+            case 6:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketPresupuesto();
+
+            case 7:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketNotaDePedido();
+
+            case 8:
+                c = cR.TraerDatosDeConfiguracion();
+                return c.getTicketNotaDeVenta();
+
+        }
+
+        return 0;
+    }
+
+    public void actualizarNumeroDeTicket(int tipoComprobante, int nuevoNumero) {
+        Configuracion c = new Configuracion();
+
+        switch (tipoComprobante) {
+
+            case 1:
+                c = cR.TraerDatosDeConfiguracion();
+                c.setTicketVenta(nuevoNumero);
+                cR.save(c);
+                break;
+
+            case 2:
+                c = cR.TraerDatosDeConfiguracion();
+                c.setTicketRecibo(nuevoNumero);
+                cR.save(c);
+            case 3:
+                 c = cR.TraerDatosDeConfiguracion();
+                c.setTicketRemito(nuevoNumero);
+                cR.save(c);
+
+            case 4:
+                c = cR.TraerDatosDeConfiguracion();
+                c.setTicketNotaDeCredito(nuevoNumero);
+                cR.save(c);
+
+            case 5:
+                 c = cR.TraerDatosDeConfiguracion();
+                c.setTicketNotaDeDebito(nuevoNumero);
+                cR.save(c);
+            case 6:
+              c = cR.TraerDatosDeConfiguracion();
+                c.setTicketPresupuesto(nuevoNumero);
+                cR.save(c);
+            case 7:
+                c = cR.TraerDatosDeConfiguracion();
+                c.setTicketNotaDePedido(nuevoNumero);
+                cR.save(c);
+            case 8:
+                c = cR.TraerDatosDeConfiguracion();
+                c.setTicketNotaDeVenta(nuevoNumero);
+                cR.save(c);
+        }
     }
 
 }

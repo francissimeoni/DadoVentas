@@ -64,5 +64,6 @@ public class Configuracion {
     private Integer ticketNotaDeCredito;
     private Integer ticketNotaDeDebito;
     private Integer ticketNotaDePedido;
-    private Integer TicketNotaDeVenta;
+    private Integer ticketNotaDeVenta;
+    private Integer ticketRecibo;
 }
